@@ -1,10 +1,12 @@
 @extends('base')
 @section('conteudo')
 
-<form action="{{route("aluno.store")}}" method="">
+<form action="" method="post">
 
     @csrf
+/resources/views/aluno/list.@php
 
+@endphp
     <label for="">Nome</label><br>
     <input type="text" name="nome"><br>
 
@@ -19,5 +21,32 @@
 
     </form>
 
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>CPF</th>
+                <th colspan="2">Ações</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            @foreach ($dados as $item)
+            <tr>
+          <td>{{$item->id}}</td>
+          <td>{{$item->nome}}</td>
+          <td>{{$item->tlefone}}</td>
+          <td>{{$item->cpf}}</td>
+          <td>Editar</td>
+          <td><a href="{{route('aluno.destroy',$item->id)}}">Excluir</a></td>
+            </tr>
+
+            @endforeach
+
+        </tbody>
+    </table>
 
 @stop

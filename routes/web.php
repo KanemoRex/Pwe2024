@@ -22,3 +22,7 @@ Route::get('/aluno', [AlunoController::class,"index"]);
 
 Route::get('/aluno/create', [AlunoController::class,"create"]);
 Route::post('/aluno', [AlunoController::class,"store"])->name('aluno.store');
+
+
+Route::get('/aluno/destroy', [AlunoController::class,"destroy"])->name('aluno.destroy');
+Route::post('/aluno/search', [AlunoController::class,"search"])->name('aluno.search');
